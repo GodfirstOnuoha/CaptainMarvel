@@ -5,6 +5,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -67,6 +68,11 @@ class MainActivity : AppCompatActivity() {
         coroutineScope.launch(errorHandler) {
             val resultList = ComicsRetriever().getComics()
             Log.d(TAG, "retrieveComics: \n$resultList")
+            Toast.makeText(
+                applicationContext,
+                "Retrieved Comics: \n$resultList",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 
